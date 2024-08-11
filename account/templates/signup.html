@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp page</title>
+    <style>
+        a{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+ <h1 style="text-align: center; margin: 20px;">Register Account</h1>
+    <form method="post" action="" style="text-align: center;">
+        {% csrf_token %}
+        <label for="{{form.label.id}}">{{form.name.label}}</label>
+        {{form.name}} 
+        <br><br>
+     
+        <label for="">{{form.email.label}}</label>
+        {{form.email}} <br><br>
+        
+        <label for="">{{form.password1.label}}</label>
+        {{form.password1}} <br><br>
+       
+        <label for="">{{form.password2.label}}</label>
+        {{form.password2}} <br><br>
+        
+
+     <button type="submit" style="cursor: pointer;">SignUp</button>
+    </form>
+    <p style="text-align: center;">Already have an account? <a href="{% url 'login'%}">Login</a>   </p>
+
+    {% if form.errors %}
+        <div>
+            <h2>Errors:</h2>
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        <li>{{ field }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+</body>
+</html>

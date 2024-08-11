@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        button{
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color:aquamarine;
+        }
+        a{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; margin:40px ;">Login Page</h1>
+    <form action="" method="post" style="text-align: center;">
+        {% csrf_token %}
+        {{form.as_p}}
+       
+        <button type="submit" style="cursor: pointer;">Login</button>
+    </form>
+    <p style="text-align: center; ">Not Register Account <a href="{% url 'signup' %}">singnup</a></p>
+
+ 
+</body>
+</html>
